@@ -38,4 +38,14 @@ final class Smilies
         $this->SmiliesParser->addParser($name, $pattern, $replace, $content);
         return $this;
     }
+
+    public function smilielist() {
+        $smilies = $this->patterns;
+        $html = ['<div id="smilielist">'];
+        foreach ($smilies as $s) {
+            $html[] = '<span title="'.$s->title.'"><img data-pattern="'.$s->smilietext.'" src="'. asset($s->smiliepath).'" alt="'.$s->title.'"></span>';
+        }
+        $html[] = '</div>';
+        return implode("\r\n",$html);
+    }
 }
