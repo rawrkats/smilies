@@ -7,13 +7,14 @@ use Rawrkats\Smilies\Parser\SmiliesParser;
 
 final class Smilies
 {
+    protected $patterns;
     private $SmiliesParser;
     const CASE_SENSITIVE = 0;
 
     public function __construct()
     {
-        $patterns = DB::table('smilies')->get();
-        $this->SmiliesParser = new SmiliesParser($patterns);
+        $this->patterns = DB::table('smilies')->get();
+        $this->SmiliesParser = new SmiliesParser($this->patterns);
     }
 
     public function only($only = null)
