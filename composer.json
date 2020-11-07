@@ -1,0 +1,40 @@
+{
+    "name": "rawrkats/smilies",
+    "description": "Smilies  parser.",
+    "keywords": ["smilies", "parser", "laravel", "psr-1", "psr-2", "psr-4"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rawrkats",
+            "email": "vexiphne@gmail.com",
+            "homepage": "https://sanguineaffliction.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Rawrkats\\Smilies\\": "src/"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/rawrkats/smilies/issues"
+    },
+    "minimum-stability": "stable",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "9.1.4"
+    },
+    "scripts": {
+        "test": "phpunit --coverage-text"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rawrkats\\Smilies\\SmiliesServiceProvider"
+            ],
+            "aliases": {
+                "Invoice": "Rawrkats\\Smilies\\Facades\\Smilies"
+            }
+        }
+    }
+}
