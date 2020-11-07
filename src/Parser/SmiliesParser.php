@@ -9,9 +9,9 @@ final class SmiliesParser extends Parser
     public function __construct($patterns) {
         $parser_array = [];
         foreach($patterns as $pattern) {
-            $parser_array[$pattern->title] = [
-                'pattern' => "/$pattern->smilietext/",
-                'replace' => $pattern->smiliepath
+            $parser_array[$pattern->id] = [
+                'pattern' => '/'.preg_quote($pattern->smilietext).'/',
+                'replace' => '<img src="'.asset($pattern->smiliepath).'">'
             ];
         }
         $this->parsers = $parser_array;
