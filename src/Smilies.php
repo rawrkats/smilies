@@ -1,7 +1,8 @@
 <?php
 
 namespace Rawrkats\Smilies;
-
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Rawrkats\Smilies\Parser\SmiliesParser;
 
 final class Smilies
@@ -11,7 +12,7 @@ final class Smilies
 
     public function __construct()
     {
-        $patterns = \App\Models\Smilies::all();
+        $patterns = DB::table('smilies')->get();
         $this->SmiliesParser = new SmiliesParser($patterns);
     }
 
